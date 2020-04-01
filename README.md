@@ -10,4 +10,11 @@ Highlighter Datacheck
 - Function
 - Take xlsx datafile input
 - User input of column label index of first concept highlighter row/column
-- 
+
+# March 28, 2020
+
+- Variables that we need to establish
+    - How many concepts are there in this study
+    - How many rows are there in each concept
+    - Is there logic connecting the first and second highlighters where a check needs to take place
+    - Is there a None option that we need to check for
