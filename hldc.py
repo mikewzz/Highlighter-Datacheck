@@ -1,9 +1,10 @@
 import pandas as pd
 import itertools as it
+import numpy as np
 
-#myXls = pd.ExcelFile('1sheet.xlsx')
+myXls = pd.ExcelFile('1sheet.xlsx')
 
-#df1 = pd.read_excel(myXls, 'A1')
+df1 = pd.read_excel(myXls, 'A1')
 #df2 = pd.read_excel(myXls, 'Datamap')
 #print(df1.columns)
 #print(df2.columns)
@@ -44,18 +45,28 @@ print (conWordCount)
 #This function will cycle through from r1 to r(x) for each highlighter for each concept dependent on the numbers of rows in each respective concept
 def cycleWordRows(curQLabel, indexOfWordCountArray):
     for con1 in range (1,conWordCount[indexOfWordCountArray]+1):
-        print (curQLabel + "r" + str(con1))
+        return (curQLabel + "r" + str(con1))
 
 myCounter1 = 0
 wordCountIdx = 0
+conceptLabelsArray=[]
 for idx, q in enumerate(conArray):
     if myCounter1 < conceptCount:
-        cycleWordRows(q, wordCountIdx)
+        conceptLabelsArray.append(cycleWordRows(q, wordCountIdx))
     else:
         wordCountIdx = wordCountIdx + 1
-        cycleWordRows(q, wordCountIdx)
+        conceptLabelsArray.append(cycleWordRows(q, wordCountIdx))
         myCounter1 = 0
     myCounter1 = myCounter1 + 1
+
+#this function will take our array of user generated highlighter labels and match it against the data file provided
+#it will return the indexes of the FIRST row of each highlighter question
+def hl_index(df, findTheseCols):
+    cols = df.columns.values
+    sidx = np.argsort(cols)
+    return sidx[np.searchsorted(cols,findTheseCols,sorter=sidx)]
+
+print (hl_index(df1, conceptLabelsArray))
 
 # for h,i,j,k in zip(conArray[0::4], conArray[1::4], conArray[2::4],conArray[3::4]):
 #     print("THIS IS H: " + h)

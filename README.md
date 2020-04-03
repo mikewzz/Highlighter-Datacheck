@@ -18,3 +18,10 @@ Highlighter Datacheck
     - How many rows are there in each concept
     - Is there logic connecting the first and second highlighters where a check needs to take place
     - Is there a None option that we need to check for
+
+# April 2, 2020
+
+- Created a function to return indexes of the first row of each highlighter question; hl_index
+    - Based on the user inputted dynamic highlighter labels
+- Imported numpy for this function
+- Next we need to be able to write a function to check for any overlapping columns within each ROW (record)
