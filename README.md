@@ -1,11 +1,20 @@
 # Highlighter-Datacheck
 Highlighter Datacheck
 - Necessities
+    - Tool would be easier to use if we had standardized question labels
 - Be able to check c1 & c2 do not have overlapping data in the same columns for each record
 - Be able to check that 'noanswer' is successful punching and clearing all columns for each record
 - Be able to check that if all columns selected at c1, then c2 is skipped (Should be a flag for this to see if way too many peopel are selecting "all" then there is likely an issue)
 - Compare the 'datamap' of each datafile we download and compare with materials to ensure the correct columns/text are being displayed
-            - Flag 
+    - Prompt user to copy 'concepts' into a 'text-assist'-like tool, parse the text file into individual words on separate lines
+    - Compare the output from this parse with COLUMN C of the corresponding concept label
+- Checkbox to enable and disable when a 'NOANSWER' option exists
+
+- Types of highlighter questions: 
+    - appealing / unappealing / new and exiciting / relevant
+        - This is the most common one; will need data validation between APPEALING and UNAPPEALING
+    - appealing / unappealing
+    - Could also consider when there are 2 highlighters on the same page
 
 - Function
 - Take xlsx datafile input
@@ -25,3 +34,4 @@ Highlighter Datacheck
     - Based on the user inputted dynamic highlighter labels
 - Imported numpy for this function
 - Next we need to be able to write a function to check for any overlapping columns within each ROW (record)
+
